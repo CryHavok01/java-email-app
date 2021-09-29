@@ -13,16 +13,13 @@ public class Email {
   public Email(String firstName, String lastName) {
     this.firstName = firstName;
     this.lastName = lastName;
-    System.out.println("Email created for " + this.firstName + " " + this.lastName);
 
     this.department = setDepartment();
-    System.out.println("Department set as: " + this.department);
     
     this.password = generatePassword(8);
     System.out.println("Password set as: " + this.password);
 
     this.email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + this.department + "." + this.compSuffix;
-    System.out.println("Email set as: " + this.email);
   }
 
   private String setDepartment() {
@@ -67,6 +64,10 @@ public class Email {
 
   public String getPassword() {
     return this.password;
+  }
+
+  public String showInfo() {
+    return "DISPLAY NAME: " + this.firstName + " " + this.lastName + "\nCOMPANY EMAIL: " + this.email + "\nMAILBOX CAPACITY: " + this.mailboxCapacity + "mb";
   }
 
   private String generatePassword(int length) {
