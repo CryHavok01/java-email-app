@@ -5,8 +5,10 @@ public class Email {
   private String lastName;
   private String password;
   private String department;
-  private int mailboxCapacity;
+  private String email;
+  private int mailboxCapacity = 500;
   private String alternateEmail;
+  private String compSuffix = "joshCorp.com";
 
   public Email(String firstName, String lastName) {
     this.firstName = firstName;
@@ -19,6 +21,8 @@ public class Email {
     this.password = generatePassword(8);
     System.out.println("Password set as: " + this.password);
 
+    this.email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + this.department + "." + this.compSuffix;
+    System.out.println("Email set as: " + this.email);
   }
 
   private String setDepartment() {
@@ -39,6 +43,30 @@ public class Email {
     } else {
       return "";
     }
+  }
+
+  public void setMailboxCapacity(int capacity) {
+    this.mailboxCapacity = capacity;
+  }
+
+  public void setAlternateEmail(String altEmail) {
+    this.alternateEmail = altEmail;
+  }
+
+  public void changePassword(String password) {
+    this.password = password;
+  }
+
+  public int getMailboxCapacity() {
+    return this.mailboxCapacity;
+  }
+
+  public String getAlternateEmail() {
+    return this.alternateEmail;
+  }
+
+  public String getPassword() {
+    return this.password;
   }
 
   private String generatePassword(int length) {
